@@ -1,4 +1,4 @@
-package ru.yandex.practicum.catsgram.controllers;
+package ru.yandex.practicum.catsgram.controller;
 
 import ch.qos.logback.classic.Level;
 import org.slf4j.Logger;
