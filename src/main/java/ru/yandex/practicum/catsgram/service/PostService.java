@@ -7,6 +7,7 @@ import ru.yandex.practicum.catsgram.exceptions.UserNotFoundException;
 import ru.yandex.practicum.catsgram.model.Post;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -71,5 +72,15 @@ public class PostService {
             ordering = PostOrder.DESCENDING.getValue();
         }
         return ordering;
+    }
+
+    public List<Post> findAllByUserEmail(String email, Integer size, String sort) {
+        return posts.stream().filter(p -> email.equals(p.getAuthor())).sorted((p0, p1) -> {
+            int comp = p0.getCreationDate().compareTo(p1.getCreationDate()); //прямой порядок сортировки
+            if(sort.equals("desc")){
+                comp = -1 * comp; //обратный порядок сортировки
+            }
+            return comp;
+        }).limit(size).collect(Collectors.toList());
     }
 }
