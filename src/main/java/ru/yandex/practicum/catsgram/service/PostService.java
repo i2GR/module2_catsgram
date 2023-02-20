@@ -2,12 +2,13 @@ package ru.yandex.practicum.catsgram.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.yandex.practicum.catsgram.exceptions.PostNotFoundException;
-import ru.yandex.practicum.catsgram.exceptions.UserNotFoundException;
+import ru.yandex.practicum.catsgram.exception.PostNotFoundException;
+import ru.yandex.practicum.catsgram.exception.UserNotFoundException;
 import ru.yandex.practicum.catsgram.model.Post;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static ru.yandex.practicum.catsgram.Constants.DESCENDING_ORDER;
 
@@ -91,9 +92,6 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
-    private static Integer getNextId() {
-        return globalId++;
-    }
 
     private int compare(Post p0, Post p1, String sort) {
         int result = p0.getCreationDate().compareTo(p1.getCreationDate()); //прямой порядок сортировки
