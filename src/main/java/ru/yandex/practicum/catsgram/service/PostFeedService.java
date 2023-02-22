@@ -1,3 +1,4 @@
+
 package ru.yandex.practicum.catsgram.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -9,7 +10,7 @@ import ru.yandex.practicum.catsgram.model.Post;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
+/*
 @Service
 public class PostFeedService {
     PostService postService;
@@ -70,3 +71,4 @@ public class PostFeedService {
         }
     }
 }
+*/
